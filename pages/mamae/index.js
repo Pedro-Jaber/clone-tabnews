@@ -3,7 +3,7 @@ function Home() {
   return (
     <div>
       <center>
-        <h1> Mamãe linda do meu coração eu te amo amooor 😍❤️</h1>
+        <h1> Mamãe linda do meu coração eu te amo 😍❤️</h1>
         <img
           src="https://media.tenor.com/FMaN1r57kukAAAAM/love.gif"
           height={300}
