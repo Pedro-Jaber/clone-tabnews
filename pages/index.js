@@ -3,15 +3,7 @@ function Home() {
   return (
     <div>
       <center>
-        <h1> Te amo amooor 😍💗❤️</h1>
-        <img
-          src="https://media.tenor.com/cWFdc87CgioAAAAC/aaaaaaaaaaaa.gif"
-          height={300}
-        ></img>
-        <img
-          src="https://media.tenor.com/FMaN1r57kukAAAAM/love.gif"
-          height={300}
-        ></img>
+        <h1> : ) </h1>
       </center>
     </div>
   );
