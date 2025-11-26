@@ -6,10 +6,12 @@ export default async function migrations(request, response) {
   const allowed_methods = ["GET", "POST"];
 
   if (!allowed_methods.includes(request.method)) {
-    return response.status(405).end();
+    return response.status(405).json({
+      error: `Method "${request.method}" not allowed`,
+    });
   }
 
-  const dbClient = await database.getNewClient();
+  let dbClient;
 
   const defaultMigrationOptions = {
     dbClient: dbClient,
@@ -21,6 +23,8 @@ export default async function migrations(request, response) {
   };
 
   try {
+    dbClient = await database.getNewClient();
+
     if (request.method === "GET") {
       const pendingMigrations = await migrationRunner(defaultMigrationOptions);
 
@@ -41,10 +45,9 @@ export default async function migrations(request, response) {
     }
   } catch (error) {
     console.error("migrations()");
-    console.error("[ERROR]: ", error.message);
+    console.error("[ERROR]: ", error);
+    throw error;
   } finally {
     await dbClient.end();
   }
-
-  return response.status(500).end();
 }
