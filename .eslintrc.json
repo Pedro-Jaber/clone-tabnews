@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:jest/recommended",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "ignorePatterns": ["tests/unit/testes.js", "pages/clara/**", "pages/mamae/**"]
+}
